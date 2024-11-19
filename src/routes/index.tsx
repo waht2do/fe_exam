@@ -4,6 +4,10 @@ import About from './pages/About'
 import DefaultLayout from './layouts/Default'
 import Movies from './pages/Movies'
 import MovieDetails from './pages/MovieDetails'
+import NotFound from './pages/NotFound'
+import Dashboard from './pages/Dashboard'
+import SignIn from './pages/SignIn'
+import { requiresAuth } from './loaders/requiresAuth'
 
 const router = createBrowserRouter([
   // pages..
@@ -27,8 +31,21 @@ const router = createBrowserRouter([
             element: <MovieDetails />
           }
         ]
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard />,
+        loader: requiresAuth
+      },
+      {
+        path: '/signin',
+        element: <SignIn />
       }
     ]
+  },
+  {
+    path: '*',
+    element: <NotFound />
   }
 ])
 

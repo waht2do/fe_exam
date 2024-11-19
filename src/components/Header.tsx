@@ -1,16 +1,17 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
 
 const navigations = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
-  { to: '/movies', label: 'Movies' }
+  { to: '/movies', label: 'Movies' },
+  { to: '/dashboard', label: 'Dashboard' }
 ]
 
 export default function Header() {
   const navigate = useNavigate()
   function signIn() {
-    navigate(-2)
+    navigate('/signin')
   }
   return (
     <header className={styles.header}>

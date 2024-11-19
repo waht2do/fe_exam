@@ -12,16 +12,7 @@ interface Movie {
 export default function MoviesPage() {
   const [searchText, setSearchText] = useState('')
   const [movies, setMovies] = useState<Movie[]>([])
-  async function fetchMovies() {
-    const resp = await fetch(
-      `https://omdbapi.com/?apikey=7035c60c&s=${searchText}`,
-      {
-        method: 'GET'
-      }
-    )
-    const { Search } = await resp.json()
-    setMovies(Search)
-  }
+
   return (
     <>
       <h1>Movies Pages</h1>

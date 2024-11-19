@@ -10,9 +10,11 @@ const navigations = [
 
 export default function Header() {
   const navigate = useNavigate()
-  function signIn() {
+
+  function toSignIn() {
     navigate('/signin')
   }
+
   return (
     <header className={styles.header}>
       {navigations.map(({ to, label }) => {
@@ -25,7 +27,7 @@ export default function Header() {
           </NavLink>
         )
       })}
-      <button onClick={signIn}>로그인</button>
+      <button onClick={toSignIn}>로그인</button>
     </header>
   )
 }

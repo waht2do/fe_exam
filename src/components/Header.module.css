@@ -1,9 +1,8 @@
 .header {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
-
 .active {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }

@@ -1,3 +1,8 @@
-import { create } from 'zustand'
+// import { create } from 'zustand'
 
-const useCountStore = create()
+// export const useCountStore = create<타입>((set, get) => ({
+//   상태1,
+//   상태2,
+//   액션1,
+//   액션2
+// }))

@@ -19,10 +19,21 @@
 .content {
   position: relative;
   background-color: #fff;
-  width: 500px;
+  width: 500px;  /* height 기본 값은 auto */
+  height: 700px;
+  overflow: auto;
   margin: 20px;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
+  transition: width .5s, height 1s .4s; 
+}
+.content_loading {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center; /* 수평 정렬 flex-direction이 row(가로) 면 수평임. 
+                            즉, 주축의 방향대로 정렬*/
+  align-items: center; /* 수직 정렬 */
 }

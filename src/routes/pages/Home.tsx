@@ -1,12 +1,13 @@
-// import { useCountStore } from '@/stores/count'
+import { useCountStore } from '@/stores/count'
 import { useUserStore } from '@/stores/user'
 import { useState, useEffect } from 'react'
 import { produce } from 'immer'
 
 export default function HomePage() {
-  // const count = useCountStore(state => state.count)
-  // const double = useCountStore(state => state.double)
-  // const increase = useCountStore(state => state.increase)
+  const count = useCountStore(state => state.count)
+  const double = useCountStore(state => state.double)
+  const increase = useCountStore(state => state.increase)
+  const decrease = useCountStore(state => state.decrease)
 
   const user = useUserStore(state => state.user)
   const setUserEmail = useUserStore(state => state.setUserEmail)
@@ -38,9 +39,10 @@ export default function HomePage() {
   return (
     <>
       <h1>Home Page!</h1>
-      {/* <button onClick={increase}>증가</button>
+      <button onClick={increase}>증가</button>
+      <button onClick={decrease}>감소</button>
       <h1>count: {count}</h1>
-      <h1>double: {double}</h1> */}
+      <h1>double: {double}</h1>
       <div>{JSON.stringify(user, null, 2)}</div>
     </>
   )

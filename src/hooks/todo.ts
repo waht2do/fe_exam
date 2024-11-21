@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 
-interface Todo {
+export interface Todo {
   id: string // 할 일 ID
   order: number // 할 일 순서
   title: string // 할 일 제목
@@ -80,6 +80,26 @@ export function useCreateTodo() {
       // const previousTodos = queryClient.getQueryData<Todo[]>(['todos'])
       // previousTodos?.shift()
     },
+    onSettled: () => {}
+  })
+}
+
+export function useUpdateTodo() {
+  return useMutation({
+    mutationFn: async (todo: Todo) => {
+      const res = await fetch(
+        `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${todo.id}`,
+        {
+          method: 'PUT', // 전체 수정
+          headers,
+          body: JSON.stringify(todo)
+        }
+      )
+      return await res.json()
+    },
+    onMutate: () => {},
+    onSuccess: () => {},
+    onError: () => {},
     onSettled: () => {}
   })
 }

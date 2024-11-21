@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
 import Delay from './pages/Delay'
 import Todos from './pages/Todos'
+import Todo from './pages/Todo'
 import { requiresAuth } from './loaders/requiresAuth'
 
 // http://localhost:5173/about
@@ -51,7 +52,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/todos',
-        element: <Todos />
+        element: <Todos />,
+        children: [
+          {
+            path: '/todos/:todoId',
+            element: <Todo />
+          }
+        ]
       }
     ]
   },

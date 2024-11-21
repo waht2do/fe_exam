@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useFetchTodos, useCreateTodo } from '@/hooks/todo'
 import Loader from '@/components/Loader'
+import { Link, Outlet } from 'react-router-dom'
 
 export default function Todos() {
   const { data: todos, isLoading } = useFetchTodos()
@@ -26,12 +27,18 @@ export default function Todos() {
       {isLoading ? (
         <Loader />
       ) : (
-        <>
+        <ul>
           {todos?.map(todo => {
-            return <li key={todo.id}>{todo.title}</li>
+            return (
+              <li key={todo.id}>
+                <Link to={`/todos/${todo.id}`}>{todo.title}</Link>
+              </li>
+            )
           })}
-        </>
+        </ul>
       )}
+
+      <Outlet />
     </>
   )
 }

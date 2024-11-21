@@ -21,13 +21,16 @@
   background-color: #fff;
   width: 500px;  /* height 기본 값은 auto */
   height: 700px;
-  overflow: auto;
   margin: 20px;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
-  transition: width .5s, height 1s .4s; 
+  overflow: auto;
+  transition: width .5s, height 1s .4s;
+  /* transition-property: CSS속성이름;
+  transition-duration: 지속시간;
+  transition-delay: 지연시간; */
 }
 .content_loading {
   width: 200px;

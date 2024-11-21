@@ -1,12 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
+function Popup() {
+  const { data } = useQuery({
+    queryKey: ['popup'],
+    queryFn: async () => {
+      return true
+    }
+  })
+  return <div>Popup!!({JSON.stringify(data)})</div>
+}
 
 export default function Sample() {
-  const [count, setCount] = useState(0)
-  const [double, setDouble] = useState(0)
+  const [isShow, setIsShow] = useState(false)
 
-  useEffect(() => {
-    setDouble(count * 2)
-  }, [count])
-
-  return <></>
+  return (
+    <>
+      <button onClick={() => setIsShow(val => !val)}>토글</button>
+      {isShow && <Popup />}
+    </>
+  )
 }

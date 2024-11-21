@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import styles from './Modal.module.css'
-import Loader from './Loader'
+import Loader from '@/components/Loader'
 import clsx from 'clsx'
 
 export default function Modal({

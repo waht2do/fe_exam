@@ -41,9 +41,12 @@ export default function HomePage() {
       <h1>Home Page!</h1>
       <button onClick={increase}>증가</button>
       <button onClick={decrease}>감소</button>
-      <h1>count: {count}</h1>
-      <h1>double: {double}</h1>
-      <div>{JSON.stringify(user, null, 2)}</div>
+
+      <hr />
+
+      {/* User */}
+      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <button onClick={() => setUserEmail('thesecon@gmail.com')}>버튼</button>
     </>
   )
 }

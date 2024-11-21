@@ -19,7 +19,7 @@
 .content {
   position: relative;
   background-color: #fff;
-  width: 500px;  /* height 기본 값은 auto */
+  width: 500px;
   height: 700px;
   margin: 20px;
   padding: 20px;
@@ -36,7 +36,7 @@
   width: 200px;
   height: 200px;
   display: flex;
-  justify-content: center; /* 수평 정렬 flex-direction이 row(가로) 면 수평임. 
-                            즉, 주축의 방향대로 정렬*/
-  align-items: center; /* 수직 정렬 */
+  /* flex-direction: row; */
+  justify-content: center; 
+  align-items: center;
 }

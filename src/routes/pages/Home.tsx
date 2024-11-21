@@ -1,44 +1,43 @@
-import { useCountStore } from '@/stores/count'
-import { useUserStore } from '@/stores/user'
 import { useState, useEffect } from 'react'
+import { useUserStore } from '@/stores/user'
+import { useCountStore } from '@/stores/count'
 import { produce } from 'immer'
 
 export default function HomePage() {
+  // Count
   const count = useCountStore(state => state.count)
   const double = useCountStore(state => state.double)
   const increase = useCountStore(state => state.increase)
   const decrease = useCountStore(state => state.decrease)
 
+  // User
   const user = useUserStore(state => state.user)
   const setUserEmail = useUserStore(state => state.setUserEmail)
   const [obj, setObj] = useState({
     user: {
       address: {
-        email: [{ host: 'gmail', name: 'neo1' }]
+        emails: [{ host: 'gmail', name: 'neo1' }]
       }
     }
   })
+
   useEffect(() => {
-    setObj(obj => {
-      return produce(obj, draft => {
-        draft.user.address.email[0].name = 'heropy'
+    console.log(obj)
+    setObj(obj =>
+      produce(obj, draft => {
+        draft.user.address.emails[0].name = 'HEROPY'
       })
-    })
+    )
   }, [])
 
-  // setObj({
-  //   ...obj,
-  //   user: {
-  //     address: {
-  //       emails: [
-
-  //       ]
-  //     }
-  //   }
-  // })
   return (
     <>
       <h1>Home Page!</h1>
+
+      {/* Count */}
+      <h2>
+        {count} / {double}
+      </h2>
       <button onClick={increase}>증가</button>
       <button onClick={decrease}>감소</button>
 

@@ -43,20 +43,26 @@ export interface Rating {
 export const useMovieStore = create(
   combine(
     {
+      inputText: '',
       searchText: '',
       movies: [] as Movie[], // as 타입 단언
-      currentMovie: null as null | MovieDetails,
+      currentMovie: null as null | MovieDetails, // as 타입 단언
       isLoading: false
     },
     (set, get) => {
       // 상태 객체
       return {
-        setSearchText: (text: string) => {
+        setInputText(text: string) {
+          set({
+            inputText: text
+          })
+        },
+        setSearchText(text: string) {
           set({
             searchText: text
           })
         },
-        fetchMovies: async () => {
+        async fetchMovies() {
           const { searchText } = get()
           // const state = get()
           // const searchText = state.searchText
@@ -68,12 +74,11 @@ export const useMovieStore = create(
             movies: Search
           })
         },
-        // 타입을 지정하는 행위 : 타이핑
-        fetchMovieDetails: async (movieId: string) => {
+        async fetchMovieDetails(movieId: string) {
           set({
             isLoading: true
           })
-          // await new Promise(resolve => setTimeout(resolve, 3000))
+          await new Promise(resolve => setTimeout(resolve, 1500))
           const res = await fetch(
             `https://omdbapi.com/?apikey=7035c60c&i=${movieId}`
           )
@@ -87,6 +92,3 @@ export const useMovieStore = create(
     }
   )
 )
-
-// 인수 = Argument = 데이터
-// 인자(매개변수) = Parameter = 변수

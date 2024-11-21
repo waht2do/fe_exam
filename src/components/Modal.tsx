@@ -21,7 +21,6 @@ export default function Modal({
       <div
         className={styles.overlay}
         onClick={offModal}></div>
-      {/* <div className={`${styles.content} ${loading ? styles.content_loading : ''}`}> */}
       <div className={clsx(styles.content, loading && styles.content_loading)}>
         {loading ? <Loader /> : children}
       </div>

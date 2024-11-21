@@ -20,8 +20,22 @@ export function useMovies() {
       const { Search } = await res.json()
       return Search
     },
-    enabled: false,
+    enabled: Boolean(searchText),
     staleTime: 1000 * 60 * 60,
-    gcTime: 1000 * 60 * 60
+    gcTime: 1000 * 60 * 60,
+    select: movies => {
+      return movies.filter(movie => {
+        return Number.parseInt(movie.Year, 10) > 2000
+      })
+    }
   })
 }
+
+export function useSample1() {
+  useQuery({ queryKey: ['hello', 'world', 123, { a: 1, b: 2 }] })
+}
+export function useSample2() {
+  useQuery({ queryKey: ['hello', 'world', 123, { a: 1, b: 2 }] })
+}
+
+// const { data, isLoading, isError, refetch } = useMovies('avengers')

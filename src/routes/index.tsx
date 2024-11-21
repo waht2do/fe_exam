@@ -7,8 +7,8 @@ import MovieDetails from './pages/MovieDetails'
 import NotFound from './pages/NotFound'
 import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
-import { requiresAuth } from './loaders/requiresAuth'
 import Delay from './pages/Delay'
+import { requiresAuth } from './loaders/requiresAuth'
 
 // http://localhost:5173/about
 // http://localhost:5173/#/about

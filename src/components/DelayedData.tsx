@@ -5,15 +5,14 @@ export default function DelayedData({ time }: { time: number }) {
     message: string
     time: string
   }>({
-    // queryKey: ['delay'],
     queryKey: ['delay', time],
     queryFn: async () => {
-      const resp = await fetch(`https://api.heropy.dev/v0/delay?t=${time}`)
-      return await resp.json()
+      const res = await fetch(`https://api.heropy.dev/v0/delay?t=${time}`)
+      return await res.json()
     },
     staleTime: 1000,
     initialData: {
-      message: 'hello world',
+      message: 'Hello world',
       time: new Date().toISOString()
     },
     refetchInterval: 5000

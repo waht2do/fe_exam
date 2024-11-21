@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound'
 import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
 import Delay from './pages/Delay'
+import Todos from './pages/Todos'
 import { requiresAuth } from './loaders/requiresAuth'
 
 // http://localhost:5173/about
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/delay',
         element: <Delay />
+      },
+      {
+        path: '/todos',
+        element: <Todos />
       }
     ]
   },
